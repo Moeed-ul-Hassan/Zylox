@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useToast } from '@/hooks/use-toast';
 
 interface ContactInfoProps {
   icon: React.ReactNode;
@@ -8,12 +9,12 @@ interface ContactInfoProps {
 
 const ContactInfo: React.FC<ContactInfoProps> = ({ icon, title, content }) => {
   return (
-    <div className="flex items-start">
-      <div className="bg-[#0066FF] p-3 rounded-lg mr-4">
+    <div className="flex items-start group">
+      <div className="bg-[#0066FF] p-3 rounded-lg mr-4 transform transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg">
         {icon}
       </div>
       <div>
-        <h4 className="font-bold mb-1">{title}</h4>
+        <h4 className="font-bold mb-1 group-hover:text-[#0066FF] transition-colors duration-300">{title}</h4>
         <p className="text-gray-400">{content}</p>
       </div>
     </div>
@@ -22,9 +23,91 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ icon, title, content }) => {
 
 const SocialButton: React.FC<{ icon: React.ReactNode; url: string }> = ({ icon, url }) => {
   return (
-    <a href={url} className="bg-white/10 hover:bg-[#0066FF] p-3 rounded-full transition-colors duration-300">
+    <a 
+      href={url} 
+      className="bg-white/10 hover:bg-[#0066FF] p-3 rounded-full transition-all duration-300 transform hover:scale-110 hover:shadow-lg"
+      target="_blank" 
+      rel="noopener noreferrer"
+    >
       {icon}
     </a>
+  );
+};
+
+// Input field with animations
+const AnimatedInput: React.FC<{
+  label: string;
+  id: string;
+  type: string;
+  name: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  placeholder: string;
+  textarea?: boolean;
+  rows?: number;
+  required?: boolean;
+}> = ({ 
+  label, 
+  id, 
+  type, 
+  name, 
+  value, 
+  onChange, 
+  placeholder, 
+  textarea = false, 
+  rows = 4,
+  required = false
+}) => {
+  const [focused, setFocused] = useState(false);
+  const [filled, setFilled] = useState(false);
+  
+  useEffect(() => {
+    setFilled(value.trim() !== '');
+  }, [value]);
+  
+  const baseClasses = "w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:border-transparent form-input transition-all duration-300";
+  const focusClasses = focused ? "ring-2 ring-[#0066FF] transform -translate-y-1" : "";
+  const filledClasses = filled && !focused ? "border-[#0066FF]/50" : "";
+  
+  return (
+    <div className="mb-6 relative">
+      <label
+        htmlFor={id}
+        className={`block mb-2 font-medium transition-all duration-300 ${
+          focused ? 'text-[#0066FF]' : 'text-gray-700'
+        }`}
+      >
+        {label} {required && <span className="text-red-500">*</span>}
+      </label>
+      
+      {!textarea ? (
+        <input
+          type={type}
+          id={id}
+          name={name}
+          value={value}
+          onChange={onChange}
+          onFocus={() => setFocused(true)}
+          onBlur={() => setFocused(false)}
+          className={`${baseClasses} ${focusClasses} ${filledClasses}`}
+          placeholder={placeholder}
+          required={required}
+        />
+      ) : (
+        <textarea
+          id={id}
+          name={name}
+          value={value}
+          onChange={onChange}
+          onFocus={() => setFocused(true)}
+          onBlur={() => setFocused(false)}
+          rows={rows}
+          className={`${baseClasses} ${focusClasses} ${filledClasses}`}
+          placeholder={placeholder}
+          required={required}
+        ></textarea>
+      )}
+    </div>
   );
 };
 
@@ -35,6 +118,8 @@ const Contact: React.FC = () => {
     subject: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -43,16 +128,27 @@ const Contact: React.FC = () => {
   
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission logic would go here
-    console.log('Form submitted:', formState);
-    // Reset form after submission
-    setFormState({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
-    });
-    // Show success message, etc.
+    setIsSubmitting(true);
+    
+    // Simulate form submission with a delay
+    setTimeout(() => {
+      console.log('Form submitted:', formState);
+      
+      // Show success message
+      toast({
+        title: "Message sent!",
+        description: "Thank you for contacting us. We'll get back to you soon.",
+      });
+      
+      // Reset form after submission
+      setFormState({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
+      setIsSubmitting(false);
+    }, 1500);
   };
   
   const contactInfo = [
@@ -122,9 +218,21 @@ const Contact: React.FC = () => {
   ];
   
   return (
-    <section id="contact" className="py-20 bg-[#0D0D0D]">
-      <div className="container mx-auto px-6">
+    <section id="contact" className="py-20 bg-[#0D0D0D] relative overflow-hidden">
+      {/* Animated background shapes */}
+      <div className="absolute inset-0 overflow-hidden z-0 opacity-20">
+        <div className="absolute top-20 -left-20 w-96 h-96 bg-[#0066FF]/30 rounded-full filter blur-3xl animate-float"></div>
+        <div className="absolute bottom-20 -right-20 w-80 h-80 bg-[#0066FF]/20 rounded-full filter blur-3xl animate-float" style={{ animationDelay: '1.5s' }}></div>
+      </div>
+      
+      <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
+          <div className="inline-block mb-3 rounded-full bg-white/10 px-3 py-1 backdrop-blur-sm border border-white/20">
+            <p className="text-white/80 text-sm font-medium">
+              <span className="text-[#0066FF]">•</span> Let's work together
+            </p>
+          </div>
+          
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
             <span className="reveal-text">Get In Touch</span>
           </h2>
@@ -135,64 +243,71 @@ const Contact: React.FC = () => {
         
         <div className="flex flex-col lg:flex-row gap-12">
           <div className="lg:w-1/2">
-            <form className="bg-white p-8 rounded-lg shadow-lg" onSubmit={handleSubmit}>
-              <div className="mb-6">
-                <label htmlFor="name" className="block text-gray-700 mb-2 font-medium">Name</label>
-                <input 
-                  type="text" 
-                  id="name" 
-                  name="name"
-                  value={formState.name}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0066FF] focus:border-transparent" 
-                  placeholder="Your name"
-                />
-              </div>
+            <form 
+              className="bg-white p-8 rounded-lg shadow-lg transform transition-all duration-500 hover:shadow-xl" 
+              onSubmit={handleSubmit}
+            >
+              <AnimatedInput 
+                label="Name"
+                id="name"
+                type="text"
+                name="name"
+                value={formState.name}
+                onChange={handleChange}
+                placeholder="Your name"
+                required
+              />
               
-              <div className="mb-6">
-                <label htmlFor="email" className="block text-gray-700 mb-2 font-medium">Email</label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  name="email"
-                  value={formState.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0066FF] focus:border-transparent" 
-                  placeholder="Your email"
-                />
-              </div>
+              <AnimatedInput 
+                label="Email"
+                id="email"
+                type="email"
+                name="email"
+                value={formState.email}
+                onChange={handleChange}
+                placeholder="Your email"
+                required
+              />
               
-              <div className="mb-6">
-                <label htmlFor="subject" className="block text-gray-700 mb-2 font-medium">Subject</label>
-                <input 
-                  type="text" 
-                  id="subject" 
-                  name="subject"
-                  value={formState.subject}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0066FF] focus:border-transparent" 
-                  placeholder="Subject"
-                />
-              </div>
+              <AnimatedInput 
+                label="Subject"
+                id="subject"
+                type="text"
+                name="subject"
+                value={formState.subject}
+                onChange={handleChange}
+                placeholder="Subject"
+              />
               
-              <div className="mb-6">
-                <label htmlFor="message" className="block text-gray-700 mb-2 font-medium">Message</label>
-                <textarea 
-                  id="message" 
-                  name="message"
-                  value={formState.message}
-                  onChange={handleChange}
-                  rows={4} 
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0066FF] focus:border-transparent" 
-                  placeholder="Your message"
-                ></textarea>
-              </div>
+              <AnimatedInput 
+                label="Message"
+                id="message"
+                type="text"
+                name="message"
+                value={formState.message}
+                onChange={handleChange}
+                placeholder="Your message"
+                textarea
+                rows={4}
+                required
+              />
               
               <button 
                 type="submit" 
-                className="w-full bg-[#0066FF] hover:bg-[#0066FF]/90 text-white font-medium py-3 px-6 rounded-md transition-all duration-300"
+                className="w-full bg-[#0066FF] hover:bg-[#0066FF]/90 text-white font-medium py-3 px-6 rounded-md transition-all duration-300 btn-primary relative overflow-hidden disabled:opacity-70 disabled:cursor-not-allowed transform hover:-translate-y-1"
+                disabled={isSubmitting}
               >
-                Send Message
+                {isSubmitting ? (
+                  <span className="flex items-center justify-center">
+                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Processing...
+                  </span>
+                ) : (
+                  <span>Send Message</span>
+                )}
               </button>
             </form>
           </div>
@@ -205,7 +320,7 @@ const Contact: React.FC = () => {
                   Feel free to reach out to us through any of the following channels. We're always happy to hear from you and discuss your project needs.
                 </p>
                 
-                <div className="space-y-6">
+                <div className="space-y-8 stagger-animate">
                   {contactInfo.map((info, index) => (
                     <ContactInfo 
                       key={index}
@@ -218,7 +333,10 @@ const Contact: React.FC = () => {
               </div>
               
               <div className="mt-12">
-                <h4 className="font-bold mb-4">Follow Us</h4>
+                <h4 className="font-bold mb-6 relative inline-block">
+                  Follow Us
+                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#0066FF]"></span>
+                </h4>
                 <div className="flex space-x-4">
                   {socialLinks.map((link, index) => (
                     <SocialButton 
@@ -227,6 +345,22 @@ const Contact: React.FC = () => {
                       url={link.url}
                     />
                   ))}
+                </div>
+              </div>
+              
+              <div className="mt-12 lg:mt-16">
+                <div className="bg-white/5 p-6 rounded-lg backdrop-blur-sm border border-white/10">
+                  <h4 className="font-bold text-xl mb-4">Need a quick response?</h4>
+                  <p className="text-gray-400 mb-4">We typically respond to inquiries within 24 hours.</p>
+                  <a 
+                    href="mailto:contact@zylox.com" 
+                    className="inline-flex items-center text-[#0066FF] hover:text-white transition-colors duration-300"
+                  >
+                    <span>Email us directly</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
+                  </a>
                 </div>
               </div>
             </div>
