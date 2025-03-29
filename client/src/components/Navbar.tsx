@@ -36,7 +36,8 @@ const Navbar: React.FC = () => {
         }`}
       >
         <div className="container mx-auto px-6 flex justify-between items-center">
-          <a href="#" className="text-2xl font-bold text-white group relative">
+          <a href="#" className="flex items-center gap-2 text-2xl font-bold text-white group relative">
+            <img src="/Zylox .jpg" alt="Zylox Logo" className="w-10 h-10 object-cover rounded-lg" />
             <span className="group-hover:text-[#0066FF] transition-colors duration-300">
               <span className="text-[#0066FF]">Z</span>ylox
             </span>
