@@ -446,34 +446,38 @@ img {
 .logo-z {
     display: inline-block;
     position: relative;
-    color: var(--primary-color);
+    color: var(--white-color);
     font-weight: 800;
-    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
-    transform: skewX(-10deg);
-    transition: transform 0.3s ease;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+    transform: skewX(-12deg);
+    transition: all 0.3s ease;
+    padding: 0 5px;
 }
 
 .logo-z::before {
     content: '';
     position: absolute;
     left: -3px;
-    top: -1px;
-    width: calc(100% + 5px);
-    height: calc(100% + 2px);
-    background-color: var(--primary-color);
+    top: -2px;
+    width: calc(100% + 6px);
+    height: calc(100% + 4px);
+    background: linear-gradient(135deg, var(--primary-color), #4d94ff);
     z-index: -1;
-    transform: skewX(10deg);
-    border-radius: 4px;
+    transform: skewX(12deg);
+    border-radius: 6px;
     transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 102, 255, 0.3);
 }
 
 .logo:hover .logo-z {
     transform: skewX(-15deg) translateY(-2px);
+    text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.4);
 }
 
 .logo:hover .logo-z::before {
-    transform: skewX(15deg) scale(1.1);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: skewX(15deg) scale(1.15);
+    box-shadow: 0 5px 15px rgba(0, 102, 255, 0.5);
+    background: linear-gradient(135deg, #0047B3, var(--primary-color));
 }
 
 .logo img {
