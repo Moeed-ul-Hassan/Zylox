@@ -278,10 +278,20 @@ img {
 }
 
 .logo {
+    display: flex;
+    align-items: center;
     font-size: 24px;
     font-weight: 700;
     color: var(--white-color);
     transition: var(--transition);
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    margin-right: 10px;
+    object-fit: cover;
 }
 
 #navbar.scrolled .logo {
