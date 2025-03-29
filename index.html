@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Preloader -->
@@ -21,7 +21,7 @@
                 <div class="spinner"></div>
                 <div class="spinner"></div>
             </div>
-            <div class="preloader-text">Loading creative experience...</div>
+            <p class="preloader-text">Loading...</p>
         </div>
     </div>
 
@@ -29,96 +29,83 @@
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
 
-    <!-- Navbar -->
+    <!-- Navigation -->
     <nav id="navbar">
-        <div class="container">
-            <div class="nav-wrapper">
-                <a href="#" class="logo">ZYLOX</a>
-                <div class="nav-toggle" id="navToggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="#home" class="nav-link">Home</a></li>
-                    <li><a href="#services" class="nav-link">Services</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#team" class="nav-link">Team</a></li>
-                    <li><a href="#work" class="nav-link">Work</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">ZYLOX</a>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#team" class="nav-link">Team</a>
+                <a href="#work" class="nav-link">Portfolio</a>
+                <a href="#testimonials" class="nav-link">Testimonials</a>
+                <a href="#contact" class="nav-link">Contact</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-subtitle animated" data-animation="fadeInUp" data-delay="0.2s">
-                    Welcome to Zylox Agency
-                </div>
-                <h1 class="hero-title animated" data-animation="fadeInUp" data-delay="0.4s">
-                    We Create <span class="typewriter" data-words="Beautiful,Modern,Responsive,Creative"></span> Websites
-                </h1>
-                <p class="hero-description animated" data-animation="fadeInUp" data-delay="0.6s">
-                    Professional web development and Shopify solutions for businesses looking to establish a strong online presence.
-                </p>
-                <div class="hero-buttons animated" data-animation="fadeInUp" data-delay="0.8s">
-                    <a href="#contact" class="btn btn-primary">Get Started</a>
-                    <a href="#services" class="btn btn-secondary">Learn More</a>
-                </div>
-            </div>
-            <div class="hero-image animated" data-animation="fadeInRight" data-delay="0.6s">
-                <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Web Development Team">
-            </div>
-        </div>
-        <!-- Animated shapes -->
         <div class="shape shape-1"></div>
         <div class="shape shape-2"></div>
         <div class="shape shape-3"></div>
+        <div class="container">
+            <div class="hero-content animated" data-animation="fadeInUp">
+                <p class="hero-subtitle">WELCOME TO ZYLOX AGENCY</p>
+                <h1 class="hero-title">We're a Digital Agency Focused on <span class="typewriter" data-words="Web Development,Shopify Solutions,Creative Designs,Mobile Apps"></span></h1>
+                <p class="hero-description">Transforming your digital ideas into reality with our expert team of developers and designers.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Get Started</a>
+                    <a href="#services" class="btn btn-secondary">Our Services</a>
+                </div>
+            </div>
+            <div class="hero-image animated" data-animation="fadeInRight" data-delay="0.3s">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&h=400" alt="Team collaboration">
+            </div>
+        </div>
     </section>
 
     <!-- Services Section -->
     <section id="services" class="section bg-gray-50">
         <div class="container">
             <div class="section-heading">
-                <div class="section-subtitle">What we offer</div>
+                <p class="section-subtitle">WHAT WE DO</p>
                 <h2 class="animated-heading">Our Services</h2>
+                <p class="section-description">We provide comprehensive digital solutions to help your business grow online.</p>
             </div>
-            <p class="section-description">
-                We offer a wide range of web development and design services to help businesses establish and enhance their online presence.
-            </p>
+
             <div class="services-grid">
-                <div class="service-card" data-animation="staggerUp" data-delay="0.1s">
+                <div class="service-card animated" data-animation="fadeInUp">
                     <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"></path>
-                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
                     </div>
                     <h3>Web Development</h3>
-                    <p>We create responsive, modern websites that deliver exceptional user experiences across all devices.</p>
-                    <a href="#contact" class="service-link">Learn more <span>&rarr;</span></a>
+                    <p>Building responsive, fast, and user-friendly websites using the latest technologies and best practices.</p>
+                    <a href="#contact" class="service-link">Learn More <span>→</span></a>
                 </div>
-                <div class="service-card" data-animation="staggerUp" data-delay="0.2s">
+
+                <div class="service-card animated" data-animation="fadeInUp" data-delay="0.2s">
                     <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
-                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
                     </div>
                     <h3>Shopify Development</h3>
-                    <p>We build custom Shopify stores that are optimized for conversions and seamless customer experiences.</p>
-                    <a href="#contact" class="service-link">Learn more <span>&rarr;</span></a>
+                    <p>Creating powerful Shopify stores to help your business sell products online effectively.</p>
+                    <a href="#contact" class="service-link">Learn More <span>→</span></a>
                 </div>
-                <div class="service-card" data-animation="staggerUp" data-delay="0.3s">
+
+                <div class="service-card animated" data-animation="fadeInUp" data-delay="0.4s">
                     <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"></path>
-                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
                     </div>
-                    <h3>Custom Shopify Themes</h3>
-                    <p>We design and develop custom Shopify themes tailored to your brand's unique identity and requirements.</p>
-                    <a href="#contact" class="service-link">Learn more <span>&rarr;</span></a>
+                    <h3>Custom Shopify Theme</h3>
+                    <p>Designing and developing custom Shopify themes tailored to your brand's unique identity.</p>
+                    <a href="#contact" class="service-link">Learn More <span>→</span></a>
                 </div>
             </div>
         </div>
@@ -128,20 +115,19 @@
     <section id="about" class="section bg-white">
         <div class="container">
             <div class="section-heading">
-                <div class="section-subtitle">Who we are</div>
+                <p class="section-subtitle">WHO WE ARE</p>
                 <h2 class="animated-heading">About Zylox</h2>
+                <p class="section-description">Learn more about our company's mission, vision, and the team behind our success.</p>
             </div>
+
             <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        Zylox is a professional freelancing agency founded by <span class="text-primary">Moeed Mirza</span>. The agency specializes in web development and Shopify solutions, offering high-quality services to businesses and entrepreneurs.
-                    </p>
-                    <p>
-                        With expertise in both frontend and backend technologies, Zylox delivers modern, scalable, and efficient web solutions. The team is dedicated to helping businesses establish and enhance their online presence through custom-built websites, e-commerce stores, and Shopify theme development.
-                    </p>
+                <div class="about-text animated" data-animation="fadeInUp">
+                    <p>Zylox is a professional freelancing agency founded by Moeed Mirza, specializing in web development and Shopify solutions. With years of experience in the digital space, we've helped numerous businesses achieve their online goals.</p>
+                    <p>Our team consists of talented developers, designers, and digital marketers who work together to deliver exceptional results for our clients. We believe in creating lasting relationships with our clients by exceeding their expectations and providing ongoing support.</p>
+                    
                     <div class="stats-grid">
                         <div class="stat-card">
-                            <h3 class="counter-value" data-count="100">0+</h3>
+                            <h3 class="counter-value" data-count="200">0+</h3>
                             <p>Projects Completed</p>
                         </div>
                         <div class="stat-card">
@@ -149,14 +135,15 @@
                             <p>Happy Clients</p>
                         </div>
                         <div class="stat-card">
-                            <h3 class="counter-value" data-count="3">0+</h3>
-                            <p>Years Experience</p>
+                            <h3 class="counter-value" data-count="5">0+</h3>
+                            <p>Years of Experience</p>
                         </div>
                     </div>
                 </div>
-                <div class="about-image">
+                
+                <div class="about-image animated" data-animation="fadeInRight" data-delay="0.3s">
                     <div class="shape-top-left"></div>
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Zylox team working together">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&h=400" alt="Team meeting">
                     <div class="shape-bottom-right"></div>
                 </div>
             </div>
@@ -167,58 +154,56 @@
     <section id="team" class="section bg-gray-50">
         <div class="container">
             <div class="section-heading">
-                <div class="section-subtitle">Meet our experts</div>
-                <h2 class="animated-heading">Our Team</h2>
+                <p class="section-subtitle">OUR EXPERTS</p>
+                <h2 class="animated-heading">Meet Our Team</h2>
+                <p class="section-description">We have a team of experienced professionals who are passionate about their work.</p>
             </div>
-            <p class="section-description">
-                Meet the talented individuals behind Zylox who bring creativity and expertise to every project.
-            </p>
+
             <div class="team-grid">
-                <div class="team-member" data-animation="staggerUp" data-delay="0.1s">
+                <div class="team-member animated" data-animation="fadeInUp">
                     <div class="member-image">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Moeed Mirza">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&h=250" alt="Moeed Mirza">
                     </div>
                     <div class="member-info">
                         <h3>Moeed Mirza</h3>
-                        <p class="member-role">Founder & Web Developer</p>
-                        <p class="member-bio">A passionate web developer with expertise in frontend and backend technologies.</p>
+                        <p class="member-role">Founder & CEO</p>
+                        <p class="member-bio">With over 7 years of experience in web development, Moeed leads our team with passion and expertise.</p>
                         <div class="member-social">
                             <a href="#" class="social-icon facebook"></a>
                             <a href="#" class="social-icon twitter"></a>
-                            <a href="#" class="social-icon github"></a>
                             <a href="#" class="social-icon linkedin"></a>
                         </div>
                     </div>
                 </div>
-                <div class="team-member" data-animation="staggerUp" data-delay="0.2s">
+
+                <div class="team-member animated" data-animation="fadeInUp" data-delay="0.2s">
                     <div class="member-image">
-                        <img src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="M. Shahram">
-                    </div>
-                    <div class="member-info">
-                        <h3>M. Shahram</h3>
-                        <p class="member-role">Web Developer</p>
-                        <p class="member-bio">Specializes in creating responsive and performant web applications with modern tech stack.</p>
-                        <div class="member-social">
-                            <a href="#" class="social-icon facebook"></a>
-                            <a href="#" class="social-icon twitter"></a>
-                            <a href="#" class="social-icon github"></a>
-                            <a href="#" class="social-icon linkedin"></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-member" data-animation="staggerUp" data-delay="0.3s">
-                    <div class="member-image">
-                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Amaima Butt">
+                        <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=400&h=250" alt="Amaima Butt">
                     </div>
                     <div class="member-info">
                         <h3>Amaima Butt</h3>
-                        <p class="member-role">Shopify Theme Developer</p>
-                        <p class="member-bio">Expert in creating custom Shopify themes and optimizing e-commerce experiences.</p>
+                        <p class="member-role">UI/UX Designer</p>
+                        <p class="member-bio">Amaima creates stunning designs that not only look great but provide exceptional user experiences.</p>
                         <div class="member-social">
                             <a href="#" class="social-icon facebook"></a>
                             <a href="#" class="social-icon twitter"></a>
+                            <a href="#" class="social-icon instagram"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-member animated" data-animation="fadeInUp" data-delay="0.4s">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&w=400&h=250" alt="M. Shahram">
+                    </div>
+                    <div class="member-info">
+                        <h3>M. Shahram</h3>
+                        <p class="member-role">Lead Developer</p>
+                        <p class="member-bio">Shahram specializes in Shopify development and has helped numerous businesses succeed online.</p>
+                        <div class="member-social">
                             <a href="#" class="social-icon github"></a>
                             <a href="#" class="social-icon linkedin"></a>
+                            <a href="#" class="social-icon twitter"></a>
                         </div>
                     </div>
                 </div>
@@ -230,50 +215,58 @@
     <section id="technologies" class="section bg-white">
         <div class="container">
             <div class="section-heading">
-                <div class="section-subtitle">Our expertise</div>
+                <p class="section-subtitle">OUR TOOLS</p>
                 <h2 class="animated-heading">Technologies We Use</h2>
+                <p class="section-description">We leverage the latest technologies to deliver high-quality digital solutions.</p>
             </div>
-            <p class="section-description">
-                Our team is proficient in a wide range of modern technologies to deliver the best solutions for your projects.
-            </p>
+
             <div class="tech-grid">
-                <div class="tech-card" data-animation="staggerUp" data-delay="0.1s">
+                <div class="tech-card animated" data-animation="fadeInUp">
                     <div class="tech-icon html-icon"></div>
-                    <h3>HTML</h3>
+                    <h3>HTML5</h3>
                 </div>
-                <div class="tech-card" data-animation="staggerUp" data-delay="0.2s">
+
+                <div class="tech-card animated" data-animation="fadeInUp" data-delay="0.1s">
                     <div class="tech-icon css-icon"></div>
-                    <h3>CSS</h3>
+                    <h3>CSS3</h3>
                 </div>
-                <div class="tech-card" data-animation="staggerUp" data-delay="0.3s">
+
+                <div class="tech-card animated" data-animation="fadeInUp" data-delay="0.2s">
                     <div class="tech-icon javascript-icon"></div>
                     <h3>JavaScript</h3>
                 </div>
-                <div class="tech-card" data-animation="staggerUp" data-delay="0.4s">
+
+                <div class="tech-card animated" data-animation="fadeInUp" data-delay="0.3s">
                     <div class="tech-icon react-icon"></div>
                     <h3>React.js</h3>
                 </div>
-                <div class="tech-card" data-animation="staggerUp" data-delay="0.5s">
+
+                <div class="tech-card animated" data-animation="fadeInUp" data-delay="0.4s">
                     <div class="tech-icon tailwind-icon"></div>
                     <h3>Tailwind CSS</h3>
                 </div>
-                <div class="tech-card" data-animation="staggerUp" data-delay="0.6s">
+
+                <div class="tech-card animated" data-animation="fadeInUp" data-delay="0.5s">
                     <div class="tech-icon node-icon"></div>
                     <h3>Node.js</h3>
                 </div>
-                <div class="tech-card" data-animation="staggerUp" data-delay="0.7s">
+
+                <div class="tech-card animated" data-animation="fadeInUp" data-delay="0.6s">
                     <div class="tech-icon express-icon"></div>
                     <h3>Express.js</h3>
                 </div>
-                <div class="tech-card" data-animation="staggerUp" data-delay="0.8s">
+
+                <div class="tech-card animated" data-animation="fadeInUp" data-delay="0.7s">
                     <div class="tech-icon mongodb-icon"></div>
                     <h3>MongoDB</h3>
                 </div>
-                <div class="tech-card" data-animation="staggerUp" data-delay="0.9s">
+
+                <div class="tech-card animated" data-animation="fadeInUp" data-delay="0.8s">
                     <div class="tech-icon firebase-icon"></div>
                     <h3>Firebase</h3>
                 </div>
-                <div class="tech-card" data-animation="staggerUp" data-delay="1.0s">
+
+                <div class="tech-card animated" data-animation="fadeInUp" data-delay="0.9s">
                     <div class="tech-icon shopify-icon"></div>
                     <h3>Shopify</h3>
                 </div>
@@ -282,62 +275,48 @@
     </section>
 
     <!-- Work Section -->
-    <section id="work" class="section bg-dark">
+    <section id="work" class="section bg-gray-50">
         <div class="container">
-            <div class="section-heading light">
-                <div class="section-subtitle">Our projects</div>
-                <h2 class="animated-heading">Our Work</h2>
+            <div class="section-heading">
+                <p class="section-subtitle">OUR PORTFOLIO</p>
+                <h2 class="animated-heading">Recent Work</h2>
+                <p class="section-description">Check out some of the projects we've worked on recently.</p>
             </div>
-            <p class="section-description light">
-                Check out some of our recent projects that showcase our expertise and creativity.
-            </p>
+
             <div class="work-grid">
-                <div class="work-item" data-animation="staggerUp" data-delay="0.1s">
-                    <img src="https://images.unsplash.com/photo-1541560052-77ec1bbc09f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="E-commerce Website">
+                <div class="work-item animated" data-animation="fadeInUp">
+                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=600&h=400" alt="E-commerce Website">
                     <div class="work-overlay">
                         <h3>E-commerce Website</h3>
-                        <p>A custom Shopify store with unique theme development</p>
-                        <a href="#" class="work-link">View Project <span>&rarr;</span></a>
+                        <p>Shopify Development</p>
+                        <a href="#" class="work-link">View Project <span>→</span></a>
                     </div>
                 </div>
-                <div class="work-item" data-animation="staggerUp" data-delay="0.2s">
-                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Creative Portfolio">
+
+                <div class="work-item animated" data-animation="fadeInUp" data-delay="0.2s">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&h=400" alt="Real Estate App">
                     <div class="work-overlay">
-                        <h3>Creative Portfolio</h3>
-                        <p>A responsive portfolio website for a photographer</p>
-                        <a href="#" class="work-link">View Project <span>&rarr;</span></a>
+                        <h3>Real Estate App</h3>
+                        <p>Web Application</p>
+                        <a href="#" class="work-link">View Project <span>→</span></a>
                     </div>
                 </div>
-                <div class="work-item" data-animation="staggerUp" data-delay="0.3s">
-                    <img src="https://images.unsplash.com/photo-1577563908411-5077b6dc7624?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="SaaS Dashboard">
+
+                <div class="work-item animated" data-animation="fadeInUp" data-delay="0.4s">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&h=400" alt="Corporate Website">
                     <div class="work-overlay">
-                        <h3>SaaS Dashboard</h3>
-                        <p>A comprehensive dashboard for a SaaS product</p>
-                        <a href="#" class="work-link">View Project <span>&rarr;</span></a>
+                        <h3>Corporate Website</h3>
+                        <p>Web Development</p>
+                        <a href="#" class="work-link">View Project <span>→</span></a>
                     </div>
                 </div>
-                <div class="work-item" data-animation="staggerUp" data-delay="0.4s">
-                    <img src="https://images.unsplash.com/photo-1491897554428-130a60dd4757?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Food Delivery App">
+
+                <div class="work-item animated" data-animation="fadeInUp" data-delay="0.6s">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&h=400" alt="E-commerce Website">
                     <div class="work-overlay">
-                        <h3>Food Delivery App</h3>
-                        <p>A modern food ordering and delivery platform</p>
-                        <a href="#" class="work-link">View Project <span>&rarr;</span></a>
-                    </div>
-                </div>
-                <div class="work-item" data-animation="staggerUp" data-delay="0.5s">
-                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Fintech Website">
-                    <div class="work-overlay">
-                        <h3>Fintech Website</h3>
-                        <p>A secure and modern financial technology platform</p>
-                        <a href="#" class="work-link">View Project <span>&rarr;</span></a>
-                    </div>
-                </div>
-                <div class="work-item" data-animation="staggerUp" data-delay="0.6s">
-                    <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Real Estate Platform">
-                    <div class="work-overlay">
-                        <h3>Real Estate Platform</h3>
-                        <p>An interactive property listing and search website</p>
-                        <a href="#" class="work-link">View Project <span>&rarr;</span></a>
+                        <h3>Fashion Store</h3>
+                        <p>Shopify Theme Development</p>
+                        <a href="#" class="work-link">View Project <span>→</span></a>
                     </div>
                 </div>
             </div>
@@ -345,52 +324,47 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="section bg-gray-50">
+    <section id="testimonials" class="section bg-white">
         <div class="container">
             <div class="section-heading">
-                <div class="section-subtitle">What clients say</div>
-                <h2 class="animated-heading">Client Testimonials</h2>
+                <p class="section-subtitle">WHAT CLIENTS SAY</p>
+                <h2 class="animated-heading">Testimonials</h2>
+                <p class="section-description">We've helped numerous businesses achieve their goals. Here's what some of them have to say.</p>
             </div>
-            <p class="section-description">
-                Hear what our clients have to say about working with Zylox.
-            </p>
+
             <div class="testimonials-grid">
-                <div class="testimonial-card" data-animation="staggerUp" data-delay="0.1s">
+                <div class="testimonial-card animated" data-animation="fadeInUp">
                     <div class="quote-icon"></div>
-                    <p class="testimonial-text">
-                        "Working with Zylox was a game-changer for our business. They delivered a stunning Shopify store that exceeded our expectations and has significantly improved our conversion rates."
-                    </p>
+                    <p class="testimonial-text">Zylox Agency transformed our e-commerce store, increasing our sales by 40% within the first month. Their attention to detail and commitment to our success was outstanding.</p>
                     <div class="testimonial-author">
-                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Michael Johnson">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=100&h=100" alt="Sarah Johnson">
                         <div class="author-info">
-                            <h4>Michael Johnson</h4>
-                            <p>CEO, Fashion Brand</p>
+                            <h4>Sarah Johnson</h4>
+                            <p>CEO, FashionFit</p>
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-card" data-animation="staggerUp" data-delay="0.2s">
+
+                <div class="testimonial-card animated" data-animation="fadeInUp" data-delay="0.2s">
                     <div class="quote-icon"></div>
-                    <p class="testimonial-text">
-                        "The team at Zylox is incredibly talented and professional. They transformed our outdated website into a modern, responsive platform that has helped us attract new clients and grow our business."
-                    </p>
+                    <p class="testimonial-text">Working with the Zylox team was a pleasure. They delivered our website on time and within budget, and the end result exceeded our expectations. Highly recommend!</p>
                     <div class="testimonial-author">
-                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Sarah Williams">
-                        <div class="author-info">
-                            <h4>Sarah Williams</h4>
-                            <p>Marketing Director, Tech Startup</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card" data-animation="staggerUp" data-delay="0.3s">
-                    <div class="quote-icon"></div>
-                    <p class="testimonial-text">
-                        "I was impressed by Zylox's attention to detail and their ability to capture our brand's essence in the custom Shopify theme they developed. They were responsive, flexible, and delivered on time."
-                    </p>
-                    <div class="testimonial-author">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="David Chen">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=100&h=100" alt="David Chen">
                         <div class="author-info">
                             <h4>David Chen</h4>
-                            <p>Owner, Boutique Shop</p>
+                            <p>Marketing Director, TechPro</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card animated" data-animation="fadeInUp" data-delay="0.4s">
+                    <div class="quote-icon"></div>
+                    <p class="testimonial-text">The custom Shopify theme Zylox created for our store perfectly captured our brand essence. The responsive design works flawlessly on all devices, and our customers love it!</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=100&h=100" alt="Emma Roberts">
+                        <div class="author-info">
+                            <h4>Emma Roberts</h4>
+                            <p>Owner, HomeDecor</p>
                         </div>
                     </div>
                 </div>
@@ -400,74 +374,84 @@
 
     <!-- Contact Section -->
     <section id="contact" class="section bg-dark">
+        <div class="bg-shape shape-left"></div>
+        <div class="bg-shape shape-right"></div>
         <div class="container">
             <div class="section-heading light">
-                <div class="section-subtitle">Let's work together</div>
-                <h2 class="animated-heading">Get In Touch</h2>
+                <p class="section-subtitle">GET IN TOUCH</p>
+                <h2 class="animated-heading">Contact Us</h2>
+                <p class="section-description light">Have a project in mind? We'd love to hear from you.</p>
             </div>
-            <p class="section-description light">
-                Ready to start your project? Reach out to us and let's discuss how we can help you achieve your goals.
-            </p>
+
             <div class="contact-grid">
-                <div class="contact-form-container">
-                    <form id="contactForm" class="contact-form">
+                <div class="contact-form-container animated" data-animation="fadeInUp">
+                    <form id="contactForm">
                         <div class="form-group">
                             <label for="name">Name <span class="required">*</span></label>
-                            <input type="text" id="name" name="name" placeholder="Your name" required>
+                            <input type="text" id="name" name="name" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email <span class="required">*</span></label>
-                            <input type="email" id="email" name="email" placeholder="Your email" required>
+                            <input type="email" id="email" name="email" required>
                         </div>
                         <div class="form-group">
                             <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" placeholder="Subject">
+                            <input type="text" id="subject" name="subject">
                         </div>
                         <div class="form-group">
                             <label for="message">Message <span class="required">*</span></label>
-                            <textarea id="message" name="message" rows="4" placeholder="Your message" required></textarea>
+                            <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary submit-btn">
                             <span class="btn-text">Send Message</span>
-                            <span class="btn-loading">
+                            <div class="btn-loading">
                                 <svg class="spinner" viewBox="0 0 24 24">
                                     <circle cx="12" cy="12" r="10"></circle>
                                 </svg>
-                                Processing...
-                            </span>
+                                Sending...
+                            </div>
                         </button>
                     </form>
                 </div>
-                <div class="contact-info">
+
+                <div class="contact-info animated" data-animation="fadeInUp" data-delay="0.3s">
                     <h3>Contact Information</h3>
-                    <p>
-                        Feel free to reach out to us through any of the following channels. We're always happy to hear from you and discuss your project needs.
-                    </p>
+                    <p>Feel free to reach out to us using the contact form or through any of the methods below.</p>
+                    
                     <div class="info-items">
                         <div class="info-item">
-                            <div class="info-icon email-icon"></div>
+                            <div class="info-icon">
+                                <div class="email-icon"></div>
+                            </div>
                             <div class="info-content">
-                                <h4>Email</h4>
-                                <p>contact@zylox.com</p>
+                                <h4>Email Us</h4>
+                                <p>info@zyloxagency.com</p>
                             </div>
                         </div>
+                        
                         <div class="info-item">
-                            <div class="info-icon phone-icon"></div>
+                            <div class="info-icon">
+                                <div class="phone-icon"></div>
+                            </div>
                             <div class="info-content">
-                                <h4>Phone</h4>
-                                <p>+1 (234) 567-8900</p>
+                                <h4>Call Us</h4>
+                                <p>+1 (123) 456-7890</p>
                             </div>
                         </div>
+                        
                         <div class="info-item">
-                            <div class="info-icon location-icon"></div>
+                            <div class="info-icon">
+                                <div class="location-icon"></div>
+                            </div>
                             <div class="info-content">
-                                <h4>Location</h4>
-                                <p>Lahore, Pakistan</p>
+                                <h4>Visit Us</h4>
+                                <p>123 Business Street, Suite 100, San Francisco, CA 94103</p>
                             </div>
                         </div>
                     </div>
+                    
                     <div class="social-links">
-                        <h4>Follow Us</h4>
+                        <h4>Connect With Us</h4>
                         <div class="social-icons">
                             <a href="#" class="social-icon facebook"></a>
                             <a href="#" class="social-icon twitter"></a>
@@ -475,19 +459,15 @@
                             <a href="#" class="social-icon linkedin"></a>
                         </div>
                     </div>
+                    
                     <div class="quick-contact">
-                        <h4>Need a quick response?</h4>
-                        <p>We typically respond to inquiries within 24 hours.</p>
-                        <a href="mailto:contact@zylox.com" class="quick-email">
-                            Email us directly <span>&rarr;</span>
-                        </a>
+                        <h4>Need Quick Assistance?</h4>
+                        <p>Drop us an email and we'll get back to you within 24 hours.</p>
+                        <a href="mailto:info@zyloxagency.com" class="quick-email">info@zyloxagency.com <span>→</span></a>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Background shapes -->
-        <div class="bg-shape shape-left"></div>
-        <div class="bg-shape shape-right"></div>
     </section>
 
     <!-- Footer -->
@@ -496,41 +476,44 @@
             <div class="footer-content">
                 <div class="footer-logo">
                     <h2>ZYLOX</h2>
-                    <p>Professional Web Development & Shopify Solutions</p>
+                    <p>We transform digital ideas into reality with our expert team of developers and designers.</p>
                 </div>
+                
                 <div class="footer-links">
                     <div class="footer-links-column">
-                        <h3>Quick Links</h3>
+                        <h3>Company</h3>
                         <ul>
-                            <li><a href="#home">Home</a></li>
-                            <li><a href="#services">Services</a></li>
-                            <li><a href="#about">About</a></li>
-                            <li><a href="#work">Work</a></li>
-                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#team">Our Team</a></li>
+                            <li><a href="#work">Portfolio</a></li>
+                            <li><a href="#testimonials">Testimonials</a></li>
                         </ul>
                     </div>
+                    
                     <div class="footer-links-column">
                         <h3>Services</h3>
                         <ul>
                             <li><a href="#services">Web Development</a></li>
                             <li><a href="#services">Shopify Development</a></li>
-                            <li><a href="#services">Custom Shopify Themes</a></li>
-                            <li><a href="#services">Responsive Design</a></li>
-                            <li><a href="#services">E-commerce Solutions</a></li>
+                            <li><a href="#services">Custom Shopify Theme</a></li>
+                            <li><a href="#contact">Request a Quote</a></li>
                         </ul>
                     </div>
+                    
                     <div class="footer-links-column">
-                        <h3>Contact</h3>
+                        <h3>Resources</h3>
                         <ul>
-                            <li><a href="mailto:contact@zylox.com">contact@zylox.com</a></li>
-                            <li><a href="tel:+12345678900">+1 (234) 567-8900</a></li>
-                            <li>Lahore, Pakistan</li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Case Studies</a></li>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2025 Zylox Agency. All rights reserved.</p>
+                <p>&copy; 2023 Zylox Agency. All rights reserved.</p>
                 <div class="footer-social">
                     <a href="#" class="social-icon facebook"></a>
                     <a href="#" class="social-icon twitter"></a>
@@ -541,14 +524,13 @@
         </div>
     </footer>
 
-    <!-- Toast notifications -->
+    <!-- Toast Container -->
     <div id="toast-container"></div>
 
-    <!-- Back to top button -->
-    <button id="backToTop" class="back-to-top">
-        <span>&uarr;</span>
-    </button>
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
 
+    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
