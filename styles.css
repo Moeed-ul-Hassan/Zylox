@@ -198,6 +198,50 @@ img {
     color: var(--white-color);
 }
 
+.preloader-logo .logo-z {
+    display: inline-block;
+    position: relative;
+    color: var(--primary-color);
+    font-weight: 800;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+    transform: skewX(-10deg);
+    animation: logoZPulse 2s infinite;
+}
+
+.preloader-logo .logo-z::before {
+    content: '';
+    position: absolute;
+    left: -3px;
+    top: -1px;
+    width: calc(100% + 5px);
+    height: calc(100% + 2px);
+    background-color: var(--primary-color);
+    z-index: -1;
+    transform: skewX(10deg);
+    border-radius: 4px;
+    animation: logoZGlow 2s infinite;
+}
+
+@keyframes logoZPulse {
+    0%, 100% {
+        transform: skewX(-10deg);
+    }
+    50% {
+        transform: skewX(-15deg) translateY(-2px);
+    }
+}
+
+@keyframes logoZGlow {
+    0%, 100% {
+        transform: skewX(10deg);
+        box-shadow: 0 0 5px rgba(0, 102, 255, 0.5);
+    }
+    50% {
+        transform: skewX(15deg) scale(1.1);
+        box-shadow: 0 0 15px rgba(0, 102, 255, 0.8);
+    }
+}
+
 .spinner-container {
     display: flex;
     justify-content: center;
@@ -284,6 +328,39 @@ img {
     font-weight: 700;
     color: var(--white-color);
     transition: var(--transition);
+}
+
+.logo-z {
+    display: inline-block;
+    position: relative;
+    color: var(--primary-color);
+    font-weight: 800;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+    transform: skewX(-10deg);
+    transition: transform 0.3s ease;
+}
+
+.logo-z::before {
+    content: '';
+    position: absolute;
+    left: -3px;
+    top: -1px;
+    width: calc(100% + 5px);
+    height: calc(100% + 2px);
+    background-color: var(--primary-color);
+    z-index: -1;
+    transform: skewX(10deg);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.logo:hover .logo-z {
+    transform: skewX(-15deg) translateY(-2px);
+}
+
+.logo:hover .logo-z::before {
+    transform: skewX(15deg) scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .logo img {
@@ -1400,6 +1477,39 @@ img {
 .footer-logo h2 {
     font-size: 28px;
     margin-bottom: 15px;
+}
+
+.footer-logo .logo-z {
+    display: inline-block;
+    position: relative;
+    color: var(--primary-color);
+    font-weight: 800;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+    transform: skewX(-10deg);
+    transition: transform 0.3s ease;
+}
+
+.footer-logo .logo-z::before {
+    content: '';
+    position: absolute;
+    left: -3px;
+    top: -1px;
+    width: calc(100% + 5px);
+    height: calc(100% + 2px);
+    background-color: var(--primary-color);
+    z-index: -1;
+    transform: skewX(10deg);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.footer-logo h2:hover .logo-z {
+    transform: skewX(-15deg) translateY(-2px);
+}
+
+.footer-logo h2:hover .logo-z::before {
+    transform: skewX(15deg) scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .footer-logo p {
