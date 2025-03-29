@@ -4,7 +4,7 @@ import { scrollToElement } from '@/lib/utils';
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -13,20 +13,20 @@ const Navbar: React.FC = () => {
         setIsScrolled(false);
       }
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
-  
+
   const handleNavLinkClick = (sectionId: string) => {
     scrollToElement(sectionId);
     setIsMobileMenuOpen(false);
   };
-  
+
   return (
     <>
       <nav 
@@ -37,13 +37,13 @@ const Navbar: React.FC = () => {
       >
         <div className="container mx-auto px-6 flex justify-between items-center">
           <a href="#" className="flex items-center gap-2 text-2xl font-bold text-white group relative">
-            <img src="/Zylox .jpg" alt="Zylox Logo" className="w-10 h-10 object-cover rounded-lg" />
+            <img src="/Zylox.jpg" alt="Zylox Logo" className="w-10 h-10 object-cover rounded-lg mr-2" />
             <span className="group-hover:text-[#0066FF] transition-colors duration-300">
               <span className="text-[#0066FF]">Z</span>ylox
             </span>
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#0066FF] group-hover:w-full transition-all duration-300"></span>
           </a>
-          
+
           <div className="hidden lg:flex space-x-10">
             <a 
               href="#services" 
@@ -81,7 +81,7 @@ const Navbar: React.FC = () => {
               Contact
             </a>
           </div>
-          
+
           <div className="hidden lg:flex">
             <a 
               href="#contact" 
@@ -91,7 +91,7 @@ const Navbar: React.FC = () => {
               Get a Quote
             </a>
           </div>
-          
+
           <button 
             id="menu-toggle" 
             className="lg:hidden text-white focus:outline-none"
@@ -103,7 +103,7 @@ const Navbar: React.FC = () => {
             </svg>
           </button>
         </div>
-        
+
         {/* Mobile menu */}
         <div 
           id="mobile-menu" 
