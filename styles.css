@@ -168,7 +168,7 @@ img {
     }
 }
 
-/* Preloader */
+/* Creative Preloader */
 #preloader {
     position: fixed;
     top: 0;
@@ -185,14 +185,19 @@ img {
 
 .preloader-container {
     text-align: center;
+    width: 80%;
+    max-width: 600px;
 }
 
 .preloader-logo {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+    transform: translateY(-20px);
+    opacity: 0;
+    animation: fadeInDown 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
 }
 
 .preloader-logo span {
-    font-size: 32px;
+    font-size: 40px;
     font-weight: 700;
     letter-spacing: 2px;
     color: var(--white-color);
@@ -222,6 +227,143 @@ img {
     animation: logoZGlow 2s infinite;
 }
 
+/* Code Animation Lines */
+.code-animation {
+    height: 120px;
+    margin: 0 auto 30px;
+    position: relative;
+    width: 80%;
+    max-width: 400px;
+    opacity: 0;
+    animation: fadeIn 0.5s 0.3s forwards;
+}
+
+.code-line {
+    height: 12px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    background: linear-gradient(90deg, var(--primary-color) 0%, rgba(0, 102, 255, 0.3) 70%, rgba(0, 102, 255, 0.1) 100%);
+    width: 0;
+    opacity: 0.8;
+    position: relative;
+    overflow: hidden;
+}
+
+.code-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%);
+    animation: shimmer 1.5s infinite;
+}
+
+.code-line.line1 {
+    animation: codeLineExpand 1.2s 0.5s cubic-bezier(0.17, 0.67, 0.83, 0.67) forwards;
+    width: 85%;
+}
+
+.code-line.line2 {
+    animation: codeLineExpand 1s 0.7s cubic-bezier(0.17, 0.67, 0.83, 0.67) forwards;
+    width: 60%;
+}
+
+.code-line.line3 {
+    animation: codeLineExpand 0.8s 0.9s cubic-bezier(0.17, 0.67, 0.83, 0.67) forwards;
+    width: 75%;
+}
+
+.code-line.line4 {
+    animation: codeLineExpand 1.4s 1.1s cubic-bezier(0.17, 0.67, 0.83, 0.67) forwards;
+    width: 45%;
+}
+
+.code-line.line5 {
+    animation: codeLineExpand 1s 1.3s cubic-bezier(0.17, 0.67, 0.83, 0.67) forwards;
+    width: 65%;
+}
+
+/* Loading Bar */
+.loading-bar-container {
+    height: 6px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    margin: 0 auto 20px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    opacity: 0;
+    animation: fadeIn 0.5s 0.5s forwards;
+}
+
+.loading-bar {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, var(--primary-color) 0%, #4d8cff 100%);
+    border-radius: 3px;
+    position: relative;
+    transition: width 0.2s ease;
+}
+
+.loading-percentage {
+    position: absolute;
+    top: -25px;
+    right: 0;
+    font-size: 14px;
+    color: var(--white-color);
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+.preloader-text {
+    color: var(--white-color);
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-top: 25px;
+    opacity: 0;
+    animation: fadeIn 0.5s 0.7s forwards;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes codeLineExpand {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes shimmer {
+    from {
+        left: -100%;
+    }
+    to {
+        left: 200%;
+    }
+}
+
 @keyframes logoZPulse {
     0%, 100% {
         transform: skewX(-10deg);
@@ -240,35 +382,6 @@ img {
         transform: skewX(15deg) scale(1.1);
         box-shadow: 0 0 15px rgba(0, 102, 255, 0.8);
     }
-}
-
-.spinner-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.spinner {
-    width: 20px;
-    height: 20px;
-    margin: 0 10px;
-    border-radius: 50%;
-    background-color: var(--primary-color);
-    animation: pulse 1.5s ease-in-out infinite;
-}
-
-.spinner:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.spinner:nth-child(3) {
-    animation-delay: 0.4s;
-}
-
-.preloader-text {
-    color: var(--white-color);
-    font-size: 16px;
-    letter-spacing: 1px;
 }
 
 /* Cursor Effect */

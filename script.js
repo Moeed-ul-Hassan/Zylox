@@ -1,21 +1,90 @@
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', function() {
-    // Preloader
+    // Creative Preloader
     const preloader = document.getElementById('preloader');
+    const loadingBar = document.querySelector('.loading-bar');
+    const loadingPercentage = document.querySelector('.loading-percentage');
+    const preloaderText = document.querySelector('.preloader-text');
     
-    window.addEventListener('load', function() {
-        setTimeout(function() {
-            if (preloader) {
+    // Loading text animation
+    const loadingMessages = [
+        "Creating digital excellence...",
+        "Loading creative designs...",
+        "Building web solutions...",
+        "Preparing Zylox magic...",
+        "Optimizing your experience..."
+    ];
+    
+    let currentTextIndex = 0;
+    const textInterval = setInterval(() => {
+        currentTextIndex = (currentTextIndex + 1) % loadingMessages.length;
+        if (preloaderText) {
+            // Fade out, change text, fade in animation
+            preloaderText.style.opacity = '0';
+            setTimeout(() => {
+                preloaderText.textContent = loadingMessages[currentTextIndex];
+                preloaderText.style.opacity = '1';
+            }, 300);
+        }
+    }, 2000);
+    
+    // Loading bar animation
+    let loadingProgress = 0;
+    const loadingInterval = setInterval(() => {
+        if (loadingProgress >= 100) {
+            clearInterval(loadingInterval);
+            clearInterval(textInterval);
+            
+            // Remove preloader after completed
+            setTimeout(() => {
                 preloader.style.opacity = '0';
                 preloader.style.visibility = 'hidden';
+                
+                // Start animations once preloader is gone
+                animateOnScroll();
+                initTypewriter();
+                initCopyButtons();
+            }, 500);
+            return;
+        }
+        
+        // Increase loading at variable speeds to seem more realistic
+        const increment = Math.floor(Math.random() * 5) + 1;
+        loadingProgress = Math.min(loadingProgress + increment, 100);
+        
+        if (loadingBar) {
+            loadingBar.style.width = `${loadingProgress}%`;
+        }
+        
+        if (loadingPercentage) {
+            loadingPercentage.textContent = `${loadingProgress}%`;
+        }
+    }, 100);
+    
+    // Fallback in case loading animation gets stuck
+    setTimeout(() => {
+        if (preloader && preloader.style.visibility !== 'hidden') {
+            clearInterval(loadingInterval);
+            clearInterval(textInterval);
+            loadingProgress = 100;
+            
+            if (loadingBar) {
+                loadingBar.style.width = '100%';
             }
             
-            // Start animations once preloader is gone
+            if (loadingPercentage) {
+                loadingPercentage.textContent = '100%';
+            }
+            
+            preloader.style.opacity = '0';
+            preloader.style.visibility = 'hidden';
+            
+            // Start animations
             animateOnScroll();
             initTypewriter();
             initCopyButtons();
-        }, 1500);
-    });
+        }
+    }, 5000);
     
     // FAQ Accordion
     const faqItems = document.querySelectorAll('.faq-item');
