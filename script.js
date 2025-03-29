@@ -125,12 +125,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Back to top button
     const backToTopButton = document.getElementById('backToTop');
+    const floatingContacts = document.querySelector('.floating-contacts');
     
     window.addEventListener('scroll', function() {
         if (window.scrollY > 700) {
-            backToTopButton.classList.add('visible');
+            backToTopButton && backToTopButton.classList.add('visible');
+            floatingContacts && (floatingContacts.style.opacity = '1');
         } else {
-            backToTopButton.classList.remove('visible');
+            backToTopButton && backToTopButton.classList.remove('visible');
+            floatingContacts && (floatingContacts.style.opacity = '0');
         }
     });
     
