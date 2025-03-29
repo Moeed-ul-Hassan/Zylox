@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import AnimatedHeading from './AnimatedHeading';
 
 interface TechnologyCardProps {
   name: string;
@@ -6,9 +7,15 @@ interface TechnologyCardProps {
 }
 
 const TechnologyCard: React.FC<TechnologyCardProps> = ({ name, svgIcon }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  
   return (
-    <div className="bg-gray-100 p-6 rounded-lg text-center">
-      <div className="flex items-center justify-center mb-4">
+    <div 
+      className={`bg-white p-6 rounded-lg text-center shadow-sm hover:shadow-md transition-all duration-500 border border-gray-100 ${isHovered ? 'translate-y-[-5px]' : ''}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className={`flex items-center justify-center mb-4 transition-transform duration-500 ${isHovered ? 'scale-110' : ''}`}>
         {svgIcon}
       </div>
       <h3 className="font-bold">{name}</h3>
@@ -106,16 +113,15 @@ const Technologies: React.FC = () => {
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="reveal-text">Technologies We Use</span>
-          </h2>
-          <p className="text-gray-500 max-w-2xl mx-auto">
-            Our team is proficient in a wide range of modern technologies to deliver the best solutions for your projects.
-          </p>
-        </div>
+        <AnimatedHeading subtext="Our expertise">
+          Technologies We Use
+        </AnimatedHeading>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mt-12">
+        <p className="text-gray-500 max-w-2xl mx-auto text-center mb-12">
+          Our team is proficient in a wide range of modern technologies to deliver the best solutions for your projects.
+        </p>
+        
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mt-12 stagger-animate">
           {technologies.map((tech, index) => (
             <TechnologyCard
               key={index}

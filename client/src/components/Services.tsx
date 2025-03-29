@@ -1,5 +1,6 @@
 import React from 'react';
 import { scrollToElement } from '@/lib/utils';
+import AnimatedHeading from './AnimatedHeading';
 
 interface ServiceCardProps {
   title: string;
@@ -9,9 +10,9 @@ interface ServiceCardProps {
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon }) => {
   return (
-    <div className="service-card bg-gray-100 p-8 rounded-xl">
+    <div className="service-card bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-500">
       <div className="mb-6">
-        <div className="bg-[#0066FF] p-3 rounded-lg inline-block">
+        <div className="bg-[#0066FF] p-3 rounded-lg inline-block transform transition-transform duration-500 group-hover:rotate-6">
           {icon}
         </div>
       </div>
@@ -20,10 +21,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon }) =
       <a 
         href="#contact" 
         onClick={(e) => { e.preventDefault(); scrollToElement('contact'); }}
-        className="text-[#0066FF] font-medium hover:underline flex items-center"
+        className="text-[#0066FF] font-medium hover:underline flex items-center group"
       >
         Learn more 
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1 transform transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
           <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
         </svg>
       </a>
@@ -63,16 +64,15 @@ const Services: React.FC = () => {
   ];
   
   return (
-    <section id="services" className="py-20 bg-white">
+    <section id="services" className="py-20 bg-gray-50">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="reveal-text">Our Services</span>
-          </h2>
-          <p className="text-gray-500 max-w-2xl mx-auto">
-            We offer a wide range of web development and design services to help businesses establish and enhance their online presence.
-          </p>
-        </div>
+        <AnimatedHeading subtext="What we offer">
+          Our Services
+        </AnimatedHeading>
+        
+        <p className="text-gray-500 max-w-2xl mx-auto text-center mb-12">
+          We offer a wide range of web development and design services to help businesses establish and enhance their online presence.
+        </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
           {services.map((service, index) => (

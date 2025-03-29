@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import AnimatedHeading from './AnimatedHeading';
 
 interface TeamMemberProps {
   name: string;
@@ -51,19 +52,26 @@ const SocialIcon: React.FC<{ type: string; url: string }> = ({ type, url }) => {
 };
 
 const TeamMember: React.FC<TeamMemberProps> = ({ name, role, description, imageUrl, socialLinks }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  
   return (
-    <div className="team-member bg-gray-100 rounded-lg overflow-hidden">
-      <div className="h-64 overflow-hidden">
+    <div 
+      className="team-member bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-500 border border-gray-100"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="h-64 overflow-hidden relative">
         <img 
           src={imageUrl} 
           alt={name} 
-          className="w-full h-full object-cover"
+          className={`w-full h-full object-cover transition-transform duration-700 ${isHovered ? 'scale-110' : 'scale-100'}`}
         />
+        <div className={`absolute inset-0 bg-[#0066FF] opacity-0 transition-opacity duration-500 ${isHovered ? 'opacity-20' : ''}`}></div>
       </div>
       <div className="p-6">
         <h3 className="text-xl font-bold mb-1">{name}</h3>
-        <p className="text-[#0066FF] mb-3">{role}</p>
-        <p className="text-gray-500 mb-4">{description}</p>
+        <p className="text-[#0066FF] mb-3 font-medium">{role}</p>
+        <p className="text-gray-500 mb-4 text-sm">{description}</p>
         <div className="flex space-x-4">
           {socialLinks.facebook && (
             <SocialIcon type="facebook" url={socialLinks.facebook} />
@@ -124,18 +132,17 @@ const Team: React.FC = () => {
   ];
   
   return (
-    <section id="team" className="py-20 bg-white">
+    <section id="team" className="py-20 bg-gray-50">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="reveal-text">Our Team</span>
-          </h2>
-          <p className="text-gray-500 max-w-2xl mx-auto">
-            Meet the talented individuals behind Zylox who bring creativity and expertise to every project.
-          </p>
-        </div>
+        <AnimatedHeading subtext="Meet our experts">
+          Our Team
+        </AnimatedHeading>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <p className="text-gray-500 max-w-2xl mx-auto text-center mb-12">
+          Meet the talented individuals behind Zylox who bring creativity and expertise to every project.
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-animate">
           {teamMembers.map((member, index) => (
             <TeamMember 
               key={index}

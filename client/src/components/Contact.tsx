@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useToast } from '@/hooks/use-toast';
+import AnimatedHeading from './AnimatedHeading';
 
 interface ContactInfoProps {
   icon: React.ReactNode;
@@ -226,20 +227,13 @@ const Contact: React.FC = () => {
       </div>
       
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
-          <div className="inline-block mb-3 rounded-full bg-white/10 px-3 py-1 backdrop-blur-sm border border-white/20">
-            <p className="text-white/80 text-sm font-medium">
-              <span className="text-[#0066FF]">•</span> Let's work together
-            </p>
-          </div>
-          
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-            <span className="reveal-text">Get In Touch</span>
-          </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            Ready to start your project? Reach out to us and let's discuss how we can help you achieve your goals.
-          </p>
-        </div>
+        <AnimatedHeading subtext="Let's work together" className="text-white">
+          Get In Touch
+        </AnimatedHeading>
+        
+        <p className="text-gray-400 max-w-2xl mx-auto text-center mb-12">
+          Ready to start your project? Reach out to us and let's discuss how we can help you achieve your goals.
+        </p>
         
         <div className="flex flex-col lg:flex-row gap-12">
           <div className="lg:w-1/2">

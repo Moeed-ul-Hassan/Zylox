@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import AnimatedHeading from './AnimatedHeading';
 
 interface TestimonialProps {
   quote: string;
@@ -8,22 +9,30 @@ interface TestimonialProps {
 }
 
 const Testimonial: React.FC<TestimonialProps> = ({ quote, name, title, imageUrl }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  
   return (
-    <div className="bg-white p-8 rounded-lg shadow-sm">
+    <div 
+      className={`bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-all duration-500 ${isHovered ? 'translate-y-[-5px]' : ''}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <div className="flex justify-center mb-4">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-[#0066FF]" viewBox="0 0 20 20" fill="currentColor">
-          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-[#0066FF]/20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
         </svg>
       </div>
-      <p className="text-gray-700 mb-6 italic">
+      <p className="text-gray-700 mb-6 italic leading-relaxed">
         {quote}
       </p>
       <div className="flex items-center">
-        <img 
-          src={imageUrl} 
-          alt={name} 
-          className="w-12 h-12 rounded-full object-cover mr-4"
-        />
+        <div className={`w-12 h-12 rounded-full overflow-hidden mr-4 transition-transform duration-500 ${isHovered ? 'scale-110' : ''}`}>
+          <img 
+            src={imageUrl} 
+            alt={name} 
+            className="w-full h-full object-cover"
+          />
+        </div>
         <div>
           <h4 className="font-bold">{name}</h4>
           <p className="text-gray-500 text-sm">{title}</p>
@@ -56,18 +65,17 @@ const Testimonials: React.FC = () => {
   ];
   
   return (
-    <section className="py-20 bg-gray-100">
+    <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="reveal-text">Client Testimonials</span>
-          </h2>
-          <p className="text-gray-500 max-w-2xl mx-auto">
-            Hear what our clients have to say about working with Zylox.
-          </p>
-        </div>
+        <AnimatedHeading subtext="What clients say">
+          Client Testimonials
+        </AnimatedHeading>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <p className="text-gray-500 max-w-2xl mx-auto text-center mb-12">
+          Hear what our clients have to say about working with Zylox.
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-animate">
           {testimonials.map((testimonial, index) => (
             <Testimonial 
               key={index}

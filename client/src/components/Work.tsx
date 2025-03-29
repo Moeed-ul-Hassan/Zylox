@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import AnimatedHeading from './AnimatedHeading';
 
 interface WorkItemProps {
   title: string;
@@ -7,17 +8,31 @@ interface WorkItemProps {
 }
 
 const WorkItem: React.FC<WorkItemProps> = ({ title, description, imageUrl }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  
   return (
-    <div className="work-item rounded-lg overflow-hidden">
+    <div 
+      className="work-item rounded-lg overflow-hidden relative cursor-pointer shadow-lg"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <img 
         src={imageUrl} 
         alt={title} 
-        className="w-full h-64 object-cover"
+        className={`w-full h-64 object-cover transition-transform duration-700 ${isHovered ? 'scale-110' : 'scale-100'}`}
       />
-      <div className="work-item-overlay p-6">
+      <div className={`absolute inset-0 bg-gradient-to-t from-black/80 to-black/30 p-6 flex flex-col justify-end transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-90'}`}>
         <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
-        <p className="text-gray-300 mb-4">{description}</p>
-        <a href="#" className="text-[#0066FF] font-medium hover:underline">View Project</a>
+        <p className={`text-gray-300 mb-4 transition-all duration-300 ${isHovered ? 'opacity-100 translate-y-0' : 'opacity-70 translate-y-2'}`}>{description}</p>
+        <a 
+          href="#" 
+          className={`text-[#0066FF] font-medium hover:underline flex items-center w-fit transition-all duration-300 ${isHovered ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}
+        >
+          View Project
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+          </svg>
+        </a>
       </div>
     </div>
   );
@@ -60,16 +75,15 @@ const Work: React.FC = () => {
   return (
     <section id="work" className="py-20 bg-[#0D0D0D]">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-            <span className="reveal-text">Our Work</span>
-          </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            Check out some of our recent projects that showcase our expertise and creativity.
-          </p>
-        </div>
+        <AnimatedHeading subtext="Our projects" className="text-white">
+          Our Work
+        </AnimatedHeading>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <p className="text-gray-400 max-w-2xl mx-auto text-center mb-12">
+          Check out some of our recent projects that showcase our expertise and creativity.
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-animate">
           {workItems.map((item, index) => (
             <WorkItem 
               key={index} 
