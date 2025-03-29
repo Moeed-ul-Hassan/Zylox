@@ -1613,7 +1613,6 @@ img {
     top: -1px;
     width: calc(100% + 5px);
     height: calc(100% + 2px);
-    background-color: var(--primary-color);
     z-index: -1;
     transform: skewX(10deg);
     border-radius: 4px;
