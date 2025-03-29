@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Start animations once preloader is gone
             animateOnScroll();
             initTypewriter();
+            initCopyButtons();
         }, 1500);
     });
     
@@ -409,6 +410,7 @@ function showToast(title, message, type = 'info') {
     // Create toast element
     const toast = document.createElement('div');
     toast.className = 'toast';
+    toast.classList.add(type);
     
     // Create toast content
     toast.innerHTML = `
@@ -433,4 +435,74 @@ function showToast(title, message, type = 'info') {
             toast.remove();
         }, 300);
     }, 5000);
+}
+
+// Copy to clipboard functionality
+function initCopyButtons() {
+    const copyButtons = document.querySelectorAll('.copy-btn');
+    
+    if (copyButtons.length > 0) {
+        copyButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Check if data-copy contains direct text or an element ID
+                const textToCopy = this.getAttribute('data-copy');
+                const targetId = this.getAttribute('data-target');
+                
+                if (textToCopy) {
+                    // Direct text to copy
+                    navigator.clipboard.writeText(textToCopy)
+                        .then(() => {
+                            // Show success toast
+                            showToast('Copied!', 'Information copied to clipboard', 'success');
+                            
+                            // Change button text temporarily
+                            const originalText = this.textContent;
+                            this.textContent = 'Copied!';
+                            
+                            // Reset button text after 2 seconds
+                            setTimeout(() => {
+                                this.textContent = originalText;
+                            }, 2000);
+                        })
+                        .catch(err => {
+                            // Show error toast
+                            showToast('Error', 'Could not copy text: ' + err, 'error');
+                        });
+                } else if (targetId) {
+                    // Get text from target element
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        let textFromElement;
+                        
+                        // Check if it's an input, textarea, or other element
+                        if (targetElement.value !== undefined) {
+                            textFromElement = targetElement.value;
+                        } else {
+                            textFromElement = targetElement.textContent;
+                        }
+                        
+                        // Copy the text to clipboard
+                        navigator.clipboard.writeText(textFromElement)
+                            .then(() => {
+                                // Visual feedback - add copied class
+                                this.classList.add('copied');
+                                
+                                // Show toast notification
+                                showToast('Copied!', 'Text copied to clipboard', 'success');
+                                
+                                // Remove copied class after a delay
+                                setTimeout(() => {
+                                    this.classList.remove('copied');
+                                }, 2000);
+                            })
+                            .catch(err => {
+                                console.error('Could not copy text: ', err);
+                                showToast('Error', 'Failed to copy text', 'error');
+                            });
+                    }
+                }
+            });
+        });
+    }
 }
