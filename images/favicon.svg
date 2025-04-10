@@ -1,0 +1,25 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Clean rounded square background -->
+  <rect x="5" y="5" width="90" height="90" rx="18" ry="18" fill="#f8f9fa" stroke="#e9ecef" stroke-width="2"/>
+  
+  <!-- Stylized "Z" that forms a path/route -->
+  <path d="M 30,30 L 70,30 L 30,70 L 70,70" 
+        stroke="#2d3142" 
+        stroke-width="7" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+        fill="none"/>
+  
+  <!-- Dot at start point -->
+  <circle cx="30" cy="30" r="5" fill="#4f8ff0"/>
+  
+  <!-- Dot at end point -->
+  <circle cx="70" cy="70" r="5" fill="#4f8ff0"/>
+  
+  <!-- Connecting arc -->
+  <path d="M 30,30 C 40,20 60,20 70,30" 
+        stroke="#4f8ff0" 
+        stroke-width="3" 
+        stroke-linecap="round"
+        fill="none"/>
+</svg>
