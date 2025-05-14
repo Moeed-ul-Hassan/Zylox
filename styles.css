@@ -1,15 +1,22 @@
 /* Base Styles */
 :root {
-    --primary-color: #0066FF;
-    --primary-color-darker: #0047B3;
-    --primary-color-lighter: #4D94FF;
-    --primary-color-opacity: rgba(0, 102, 255, 0.2);
-    --dark-color: #0D0D0D;
-    --gray-color: #F5F7FA;
-    --gray-color-darker: #E5E9F0;
-    --text-color: #333333;
-    --text-color-light: #666666;
-    --text-color-lighter: #999999;
+  /* Primary Forest Green Colors */
+  --primary-color: #176251;                /* Main forest green */
+  --primary-color-darker: #0f3e33;         /* Dark tone for hover, header bg */
+  --primary-color-lighter: #2e8c74;        /* Slightly lighter for accents */
+  --primary-color-opacity: rgba(23, 98, 81, 0.15); /* Translucent overlay */
+
+  /* Supporting Shades */
+  --dark-color: #0b2f27;                   /* Very deep green, good for footer or dark mode */
+  --gray-color: #eaf3f1;                   /* Soft greenish-gray for section background */
+  --gray-color-darker: #cce1db;            /* Border color or card background */
+
+  /* Text Colors */
+  --text-color: #1a3a35;                   /* Main dark greenish text */
+  --text-color-light: #456b64;             /* Slightly lighter for subheadings */
+  --text-color-lighter: #7c9d97;           /* Muted or secondary text */
+
+  /* Utility Colors */
     --white-color: #FFFFFF;
     --black-color: #000000;
     --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
