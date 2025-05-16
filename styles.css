@@ -1081,33 +1081,38 @@ img {
 .firebase-icon { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%230066FF"><path d="M3.89 15.673L6.255.461A.542.542 0 0 1 7.27.289L9.813 5.06 3.89 15.673zm16.795 3.691L18.433 5.365a.543.543 0 0 0-.918-.295l-14.2 14.294 7.857 4.428a1.62 1.62 0 0 0 1.587 0l7.926-4.428zM14.3 7.148l-1.82-3.482a.542.542 0 0 0-.96 0L3.53 17.984 14.3 7.148z"/></svg>'); }
 .shopify-icon { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%230066FF"><path d="M13.53 9.37c.73.7 1.95.69 2.69-.01l5.56-5.37A3.846 3.846 0 0 0 19.17 2H18a6.77 6.77 0 0 1 0 4.34l-4.47 2.96m2.5 5.92A6.77 6.77 0 0 1 18 19.6v.4h1.17c.89 0 1.74-.33 2.39-.89a.926.926 0 0 0 0-1.35L16 12.2c-.73-.7-1.95-.69-2.69.01l2.73 3.08M10.03 7.62A6.844 6.844 0 0 1 12 7.6h.4v-1.17c0-.89-.33-1.75-.89-2.39c-.36-.41-.96-.41-1.32 0L4.62 9.37c-.73.7-.73 1.94 0 2.64L10.03 7.62M12 16.4h-.4c-.7 0-1.38-.15-2-.45l-5.38 5.04a3.45 3.45 0 0 0 2.39.9H8c.69-1.2 1.71-2.2 2.9-2.9l4.1-2.39c-.22-.32-.73-1.32-1-1.7a3.383 3.383 0 0 0-2 .5c.49.49.84 1.33 0 2Z"/></svg>'); }
 
-/* Work Section */
 .work-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 30px;
 }
 
+/* Each work item box */
 .work-item {
     position: relative;
-    height: 250px;
+    aspect-ratio: 4 / 3; /* Maintains same width/height ratio */
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: var(--box-shadow);
     cursor: pointer;
+    background-color: #f0f0f0; /* fallback in case image fails */
 }
 
+/* Images inside the grid */
 .work-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.7s ease;
+    display: block;
 }
 
+/* Zoom image on hover */
 .work-item:hover img {
     transform: scale(1.1);
 }
 
+/* Overlay at bottom */
 .work-overlay {
     position: absolute;
     bottom: 0;
@@ -1120,15 +1125,13 @@ img {
     transition: var(--transition);
 }
 
-.work-item:hover .work-overlay {
-    opacity: 1;
-}
-
+/* Overlay headings */
 .work-overlay h3 {
     font-size: 20px;
     margin-bottom: 10px;
 }
 
+/* Overlay description */
 .work-overlay p {
     color: rgba(255, 255, 255, 0.8);
     font-size: 14px;
@@ -1138,11 +1141,13 @@ img {
     transition: all 0.3s ease;
 }
 
+/* On hover: reveal description */
 .work-item:hover .work-overlay p {
     opacity: 1;
     transform: translateY(0);
 }
 
+/* View Project Link */
 .work-link {
     color: var(--primary-color);
     font-weight: 600;
@@ -1153,11 +1158,13 @@ img {
     transition: all 0.3s ease;
 }
 
+/* On hover: reveal View Project */
 .work-item:hover .work-link {
     opacity: 1;
     transform: translateX(0);
 }
 
+/* Arrow movement on hover */
 .work-link span {
     margin-left: 5px;
     transition: var(--transition);
