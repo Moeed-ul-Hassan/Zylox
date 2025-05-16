@@ -1042,6 +1042,7 @@ img {
     padding: 25px;
     text-align: center;
     transition: var(--transition);
+   
 }
 
 .tech-card:hover {
@@ -1057,6 +1058,7 @@ img {
     background-repeat: no-repeat;
     background-size: contain;
     transition: var(--transition);
+   color : var(--primary-color);
 }
 
 .tech-card:hover .tech-icon {
